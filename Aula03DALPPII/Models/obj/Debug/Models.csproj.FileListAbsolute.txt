@@ -1,0 +1,5 @@
+C:\Users\70439\Desktop\DALPP\Aula03DALPPII\Models\bin\Debug\Models.dll
+C:\Users\70439\Desktop\DALPP\Aula03DALPPII\Models\bin\Debug\Models.pdb
+C:\Users\70439\Desktop\DALPP\Aula03DALPPII\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+C:\Users\70439\Desktop\DALPP\Aula03DALPPII\Models\obj\Debug\Models.dll
+C:\Users\70439\Desktop\DALPP\Aula03DALPPII\Models\obj\Debug\Models.pdb
