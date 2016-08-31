@@ -48,9 +48,15 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnAtualizar = new System.Windows.Forms.Button();
+            this.btnExluir = new System.Windows.Forms.Button();
+            this.btnLimpar = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dgvPessoas = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPessoas)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -237,6 +243,7 @@
             // 
             // btnAtualizar
             // 
+            this.btnAtualizar.Enabled = false;
             this.btnAtualizar.Location = new System.Drawing.Point(97, 347);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(75, 23);
@@ -245,12 +252,55 @@
             this.btnAtualizar.UseVisualStyleBackColor = true;
             this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
             // 
+            // btnExluir
+            // 
+            this.btnExluir.Enabled = false;
+            this.btnExluir.Location = new System.Drawing.Point(179, 346);
+            this.btnExluir.Name = "btnExluir";
+            this.btnExluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExluir.TabIndex = 8;
+            this.btnExluir.Text = "Excluir";
+            this.btnExluir.UseVisualStyleBackColor = true;
+            this.btnExluir.Click += new System.EventHandler(this.btnExluir_Click);
+            // 
+            // btnLimpar
+            // 
+            this.btnLimpar.Location = new System.Drawing.Point(260, 346);
+            this.btnLimpar.Name = "btnLimpar";
+            this.btnLimpar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpar.TabIndex = 9;
+            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.UseVisualStyleBackColor = true;
+            this.btnLimpar.Click += new System.EventHandler(this.btnLimpar_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dgvPessoas);
+            this.groupBox4.Location = new System.Drawing.Point(432, 13);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(758, 356);
+            this.groupBox4.TabIndex = 10;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Listagem de Pessoas";
+            // 
+            // dgvPessoas
+            // 
+            this.dgvPessoas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPessoas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvPessoas.Location = new System.Drawing.Point(3, 16);
+            this.dgvPessoas.Name = "dgvPessoas";
+            this.dgvPessoas.Size = new System.Drawing.Size(752, 337);
+            this.dgvPessoas.TabIndex = 0;
+            // 
             // frmCadastroPessoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(437, 393);
+            this.ClientSize = new System.Drawing.Size(1230, 422);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.btnLimpar);
+            this.Controls.Add(this.btnExluir);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnAdicionar);
@@ -258,12 +308,15 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "frmCadastroPessoa";
             this.Text = "Cadastro Pessoa";
+            this.Load += new System.EventHandler(this.frmCadastroPessoa_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPessoas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -290,5 +343,9 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnAtualizar;
+        private System.Windows.Forms.Button btnExluir;
+        private System.Windows.Forms.Button btnLimpar;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView dgvPessoas;
     }
 }

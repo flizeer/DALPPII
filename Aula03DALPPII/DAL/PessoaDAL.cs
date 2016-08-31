@@ -115,5 +115,78 @@ namespace DAL
                     conn.Close();
             }
         }
+
+        public void ExcluirPessoa(int cdPessoa)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+            try
+            {
+                conn.Open();
+                string sql = "DELETE FROM Pessoas WHERE CdPessoa = @cdPessoa";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.Parameters.AddWithValue("@cdPessoa", cdPessoa);
+
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Método para listar Pessoas
+        /// </summary>
+        /// <returns></returns>
+        public List<Pessoa> ListarPessoas() //Vai retornar uma lista de pessoas
+        {
+            List<Pessoa> objPessoas = new List<Pessoa>(); 
+
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            try
+            {
+                conn.Open();
+
+                string sql = "SELECT * FROM Pessoas";
+
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                //Fazer verificação em cada uma das linhas
+                if (dr.HasRows) // Tem Linhas ?
+                {
+                    Pessoa p = null; //Variavel auxiliar
+                    while (dr.Read()) // Ira ler linha por linha que o select retornar, enquanto estiver sendo lido
+                    {
+                        p = new Pessoa();
+                        p.CdPessoa = Convert.ToInt32(dr["cdPessoa"]);
+                        p.NmPessoa = dr["NmPessoa"].ToString();
+                        p.NrCPF = dr["NrCPF"].ToString();
+                        p.DtNascimento = Convert.ToDateTime(dr["DtNascimento"]);
+                        p.DsLogradouro = dr["DsLogradouro"].ToString();
+                        p.DsCidade = dr["DsCidade"].ToString();
+                        p.DsUF = dr["DsUF"].ToString();
+
+                        objPessoas.Add(p); // está adicionando na lista
+                    }
+                }
+            }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return objPessoas;
+        }
     }
 }

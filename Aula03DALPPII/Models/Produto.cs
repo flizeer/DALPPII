@@ -8,6 +8,7 @@ namespace Models
 {
     public class Produto
     {
+        public int CdProduto { get; set; }
         public string NmProduto { get; set; }
         public string DsProduto { get; set; }
         public decimal VlProduto { get; set; }

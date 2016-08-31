@@ -16,7 +16,7 @@ namespace Aula03DALPPII
     {
         public frmCadastroPessoa()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -33,10 +33,14 @@ namespace Aula03DALPPII
             PessoaDAL pDAL = new PessoaDAL();
             pDAL.InserirPessoa(objPessoa);
 
+            LimparCampos();
+            CarregarPessoas();
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            TelaBuscar();
             int codigo = Convert.ToInt32(txtCdCliente.Text);
             PessoaDAL pDALL = new PessoaDAL ();
             Pessoa objPessoa = pDALL.SelecionarPessoaPeloCodigo(codigo);
@@ -56,11 +60,11 @@ namespace Aula03DALPPII
             {
                 MessageBox.Show("Pessoa não encontrada");
             }
-
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
+            TelaInicial();
             Pessoa objPessoa = new Pessoa();
 
             objPessoa.CdPessoa = Convert.ToInt32(txtCdCliente.Text);
@@ -73,6 +77,74 @@ namespace Aula03DALPPII
 
             PessoaDAL pDAL = new PessoaDAL();
             pDAL.AtualizarPessoa(objPessoa);
+            LimparCampos();
+            TelaInicial();
+            CarregarPessoas();
+        }
+
+        private void btnExluir_Click(object sender, EventArgs e)
+        {
+            TelaInicial();
+            if (MessageBox.Show("Tem certeza que deseja excluir esta pessoa ?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes) ;
+            {
+                int codigo = Convert.ToInt32(txtCdCliente.Text);
+                PessoaDAL pDALL = new PessoaDAL();
+                pDALL.ExcluirPessoa(codigo);
+
+                MessageBox.Show("Pessoa Excluida com sucesso!!");
+            }
+
+            LimparCampos();
+            CarregarPessoas();
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+            TelaInicial();
+        }
+
+        private void LimparCampos()
+        {
+            txtCdCliente.Text = string.Empty;
+            txtNome.Text = string.Empty;
+            mtdCPF.Text = string.Empty;
+            dtpDataNascimento.Value = DateTime.Now;
+            txtLogradouro.Text = string.Empty;
+            txtCidade.Text = string.Empty;
+            cbUF.Text = string.Empty;
+        }
+        private void TelaInicial()
+        {
+            txtCdCliente.Enabled = true;
+            btnBuscar.Enabled = true;
+            btnAdicionar.Enabled = true;
+            btnAtualizar.Enabled = false;
+            btnExluir.Enabled = false;
+       }
+        private void TelaBuscar()
+        {
+            txtCdCliente.Enabled = false;
+            btnBuscar.Enabled = false;
+            btnAdicionar.Enabled = false;
+            btnAtualizar.Enabled = true;
+            btnExluir.Enabled = true;
+        }
+
+        private void frmCadastroPessoa_Load(object sender, EventArgs e)
+        {
+            TelaInicial();
+            CarregarPessoas();
+        }
+
+        private void CarregarPessoas()
+        {
+            //código que vai preencher o dataGridView
+
+            PessoaDAL pDAL = new PessoaDAL();
+
+            dgvPessoas.DataSource = pDAL.ListarPessoas();
         }
     }
+  
 }

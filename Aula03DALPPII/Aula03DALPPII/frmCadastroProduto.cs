@@ -29,6 +29,29 @@ namespace Aula03DALPPII
 
             ProdutoDAL pDAL = new ProdutoDAL();
             pDAL.InserirProduto(objProduto);
+            CarregarProdutos();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            int codigo = Convert.ToInt32(txtCodigo.Text);
+
+            ProdutoDAL produtoDALL = new ProdutoDAL();
+
+            produtoDALL.ExcluirProduto(codigo);
+            CarregarProdutos();
+        }
+
+        private void CarregarProdutos()
+        {
+            ProdutoDAL produtosDAL = new ProdutoDAL();
+
+            dgvProdutos.DataSource = produtosDAL.ListarProdutos();
+        }
+
+        private void frmCadastroProduto_Load(object sender, EventArgs e)
+        {
+            CarregarProdutos();
         }
     }
 }
