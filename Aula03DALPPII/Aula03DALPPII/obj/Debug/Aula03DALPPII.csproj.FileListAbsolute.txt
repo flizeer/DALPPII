@@ -13,3 +13,6 @@ C:\Users\70439\Desktop\DALPP\Aula03DALPPII\Aula03DALPPII\bin\Debug\Models.dll
 C:\Users\70439\Desktop\DALPP\Aula03DALPPII\Aula03DALPPII\bin\Debug\DAL.pdb
 C:\Users\70439\Desktop\DALPP\Aula03DALPPII\Aula03DALPPII\bin\Debug\Models.pdb
 C:\Users\70439\Desktop\DALPP\Aula03DALPPII\Aula03DALPPII\obj\Debug\Aula03DALPPII.frmCadastroProduto.resources
+C:\Users\flize\Documents\GitHub\DALPPII\Aula03DALPPII\Aula03DALPPII\bin\Debug\Aula03DALPPII.exe.config
+C:\Users\flize\Documents\GitHub\DALPPII\Aula03DALPPII\Aula03DALPPII\obj\Debug\Aula03DALPPII.exe
+C:\Users\flize\Documents\GitHub\DALPPII\Aula03DALPPII\Aula03DALPPII\obj\Debug\Aula03DALPPII.pdb
